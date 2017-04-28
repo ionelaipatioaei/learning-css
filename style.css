@@ -1,0 +1,341 @@
+/*
+This document is going to explain the basics of CSS.
+This document was inspired by SoloLearn app.
+www.sololearn.com
+*/
+
+/*
+CSS and HTML work hand in hand:
+-HTML sorts out the page structure.
+-CSS defines how HTML elements are displayed.
+The main benefit of CSS is that it allows you to separate style from content.
+*/
+
+h2/*selector*/ {
+    color:/*property*/aquamarine/*value*/;
+    background-color: bisque;
+}
+/*CSS is composed of style rules. A style rule has three parts: selector, property and value.*/
+
+/*
+ID selectors allow you to style an HTML element that has an ID attribute.
+*/
+
+#styleHeading1 {
+    color: red;
+    background-color: blue;
+}
+
+/*
+Descendant selectors are used to select elements thtat are descendants of another element. When selecting levels, you can select as many levels deep as you need to.
+*/
+#style1 em {
+    color: hotpink;
+    background-color: aquamarine;
+}
+
+p.text1 {
+    color: aquamarine;
+}
+
+/*
+Working with text.
+This text is going to have a lot of proprieties.
+*/
+
+p.wtext {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-style: italic;
+    font-weight: 600;
+    font-variant: small-caps;
+    /*You can also use color: rgb(255, 0, 0) or #0000FF*/
+    color: darkolivegreen;
+    text-align: center;
+    /*vertical-align: super;*/
+    text-decoration: underline;
+    text-indent: 20px;
+    /*Probably not supported*/
+    text-shadow: 5px, 4px, 4px, grey;
+    text-transform: capitalize;
+    word-spacing: normal;
+    white-space: nowrap;
+}
+
+/*
+The CSS box model.
+All HTML elements can be considered as boxes. The CSS box model  represents the design and layout of the site. It consists of margins, borders, paddings and the actual content.
+The proprieties work in the same order: top, right, bottom and left.
+See more on the image below.
+*/
+
+/*
+Border example
+*/
+
+p.p1 {
+    padding: 10px;
+    border: 5px solid rgb(255, 0, 0);
+    border-width: 10px;
+    border-style: double;
+    
+    width: 1000px;
+    height: 30px;
+    
+    background-color: rgb(135, 206, 235);
+}
+
+p.p2 {
+    padding: 10px;
+    border: 5px solid lightblue;
+    
+    width: 1000px;
+    height: 200px;
+    background-image: url("colors.jpg");
+    /* This is a property which repeats the background on X or Y axis.
+    background-repeat: repeat-x;
+    */
+    /*This property i cool.*/
+    background-attachment: fixed;
+    
+    color: white;
+    text-align: center;
+    vertical-align: super;
+    font-size: 30px;
+    font-weight: 900
+}
+
+ol.l1 {
+    list-style-type: circle;
+    list-style-position: inside;
+    /*
+    Make sure that the image is small.
+    list-style-image: url(list.png);
+    */
+}
+
+/*The text which appears above the table.*/
+caption {
+    caption-side: top;
+}
+
+table.t1 {
+    border: 6px solid;
+    border-color: blueviolet;
+    empty-cells: hide;
+    table-layout: auto;
+}
+
+p.p3 {
+    font-size: 30px;
+}
+
+/*Link customization*/
+a:link {
+    text-decoration: none;
+}
+
+a:hover {
+    color: aquamarine;
+}
+
+p.p4 {
+    display: inline;
+    /*With this property you can set the position.
+    position: fixed;
+    */
+}
+
+/*This text won't appear on the page.*/
+p.p5 {
+    display: none;
+    visibility: hidden;
+}
+
+p.p6 {
+    
+    width: 200px;
+    height: 200px;
+    background-color: azure;
+    font-size: 60px;
+    overflow: scroll;
+}
+
+/*
+The z-index
+Usually the green shape stacks on the blue shape because the blue shape was first defined in HTML.
+Using z-index we can give them priority. Z-index works only on positioned elements.
+*/
+p.green {
+    z-index: 2;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    background-color: rgb(0, 255, 0);
+}
+
+p.blue {
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    background-color: rgb(0, 0, 255);
+    position: relative;
+    margin-top: -60px;
+    margin-left: 80px;
+}
+
+/*
+CSS3 is the latest standard for CSS, it is completely backwards-compatible with earlier CSS versions.
+Some of the most significant new features are: border radius, border images, multiple images, animations and effects.
+Vendor prefixes are a way to add support for new CSS features during periods of texting and experimentation.
+List of vendor prefixes for each browser:
+1.Firefox -moz-
+2.Safari & Chrome -webkit-
+3.Opera -o-
+4.Internet Explorer -ms-
+*/
+
+/*Rounded Corners, Shadows, Transparency*/
+
+p.p7 {
+    width: 1000px;
+    height: 40px;
+    border-radius: 40px;
+    font-size: 20px;
+    /*The last value represents the opacity, 1 is fully opaque and 0 fully transparent.*/
+    background-color: rgba(0, 0, 255, 0.2);
+    color: blueviolet;
+    text-align: center;
+    /*
+    X axis size, Y axis size, blur, spread and color
+    Negative values can also be used for the box shadow property.
+    The "inset" keyword allows to draw an inner shadow in the box.
+    You can define as many shadows for the same box as you want by writting all of the comma-separated.
+    */
+    box-shadow: 10px -10px 5px 5px grey;
+    word-wrap: break-word;
+}
+
+/*For some reason this doesn't work*/
+h4 {
+    text-shadow: 3px, 3px, 2px, 2px, grey;
+}
+
+/*Pseudo-classes*/
+#parent p:first-child {
+    color: darkolivegreen;
+}
+
+/*
+Pseudo-elements
+::first-line
+::first-letter
+::selection
+::before
+::after
+*/
+
+#parent p::first-letter {
+    color: deeppink;
+}
+
+/*The @font-face rule allows custom fonts to be loaded into a webpage.*/
+@font-face {
+    font-family: ;
+    src: url();
+}
+
+/*Linear gradients*/
+p.p8 {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(blue, mediumvioletred);
+}
+
+p.p9 {
+    width: 200px;
+    height: 200px;
+    background: repeating-linear-gradient(45deg, blue 10px, mediumvioletred 50px, red 15px, green 5px);
+    margin-top: -216px;
+    margin-left: 250px;
+}
+
+/*Radial gradients*/
+p.p10 {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, green, blue);
+    margin-top: -216px;
+    margin-left: 500px;
+}
+
+/*Multiple background images*/
+p.p11 {
+    width: 400px;
+    height: 400px;
+    background-image: url(list.png), linear-gradient(45deg, aqua, beige);
+    background-position: right bottom, left top;
+    background-repeat: no-repeat;
+}
+
+/*Image opacity*/
+img.img1 {
+    opacity: 0.5;
+}
+
+/*
+Tansitions allow us to change from one property value to another over a given duration.
+transition-property - specifies the property to be transitioned
+transition-duration - specifies the duration over which transitions should occur
+transition-timing-function - specifies how the pace of the transition change over its duration
+transition-delay - specifies a delay (in seconds) for the transition effect
+*/
+
+p.p12 {
+    width: 100px;
+    height: 50px;
+    background-color: rgb(255, 0, 0);
+    transition: width 5s;
+    transition-timing-function: cubic-bezier(0.17, 0.25, 0.35, 0.67);
+    /*
+    The translate() method moves an element from its current position.
+    transform: translate(500px, 50px);
+    */
+    transform: rotate(5deg);
+    transform: skewX(30deg);
+}
+
+p.p12:hover {
+    width: 400px;
+}
+
+/*The scale() method increases or decreases the size of an element.*/
+p.p13 {
+    width: 100px;
+    height: 100px;
+    background-color: rgb(0, 255, 0);
+    transform: scale(1.5, 1.5);
+}
+
+p.p14 {
+    width: 150px;
+    height: 150px;
+    margin-top: 50px;
+    animation-name: changeColor;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes changeColor {
+    0% {
+        background-color: aquamarine;
+    } 50% {
+        background-color: bisque;
+    } 75% {
+        background-color: aqua;
+    } 100% {
+        background-color: burlywood;
+    }
+}
+
+/*Written by xLionel775 28.04.2017*/
